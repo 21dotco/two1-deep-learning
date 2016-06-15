@@ -1,0 +1,27 @@
+basePath: /
+host: django-heroku-21-tutorial.herokuapp.com
+info:
+  contact: {email: jeremy@21.co, name: Jeremy Kun, url: 'https://21.co'}
+  description: A deep21 world app hosted on heroku using Django.
+  license: {name: MIT LICENSE, url: 'https://opensource.org/licenses/MIT'}
+  termsOfService: https://opensource.org/licenses/MIT
+  title: Hello 21!
+  version: '0.3'
+  x-21-app-image: https://cdn.filepicker.io/api/file/N1fcQszdRSCTEKNt1Qpp
+  x-21-category: utilities
+  x-21-keywords: tutorial heroku django
+  x-21-quick-buy: $ 21 buy url "https://django-heroku-21-tutorial.herokuapp.com/buy"
+  x-21-total-price: {max: 100, min: 100}
+  x-21-usage: ''
+paths:
+  /buy:
+    get:
+      produces: [text/plain]
+      responses:
+        200:
+          description: a deep21 world message
+          schema: {type: text}
+      summary: buy a deep21 world message
+schemes: [https]
+swagger: '2.0'
+x-21-manifest-path: /manifest

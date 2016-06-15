@@ -1,0 +1,49 @@
+{
+  "name": "Django Heroku 21 Template",
+  "description": "A template for a Django/Heroku app that uses 21.",
+  "keywords": [
+    "django",
+    "heroku",
+    "bitcoin",
+    "21"
+  ],
+  "website": "https://21.co",
+  "repository": "https://github.com/21dotco/two1-django-heroku",
+  "logo": "https://assets.21.co/shared/img/21logo.png",
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  },
+  "env": {
+    "DISABLE_COLLECTSTATIC": {
+      "description": "Disable static asset collection",
+      "value": "1"
+    },
+    "HASHIDS_SALT": {
+      "description": "A salt for hashids",
+      "generator": "secret"
+    },
+    "TWO1_USERNAME": {
+      "description": "21.co username"
+    },
+    "TWO1_WALLET_MNEMONIC": {
+      "description": "21 wallet mnemonic"
+    },
+    "DEBUG": {
+      "description": "Whether to run the app in DEBUG mode",
+      "value": "False"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
