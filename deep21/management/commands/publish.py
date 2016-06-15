@@ -1,5 +1,4 @@
 import logging
-import sys
 from datetime import datetime
 
 from django.core.management.base import BaseCommand
@@ -15,15 +14,12 @@ class Command(BaseCommand):
     def __init__(self):
         super().__init__()
         self._logger = logging.getLogger('deep21.publish')
-        logging.basicConfig(stream=sys.stdout, level=logging.INFO)
         self._username = settings.TWO1_USERNAME
-        self._client = rest_client.TwentyOneRestClient(
-            username=self._username, wallet=settings.WALLET
-        )
+        self._client = rest_client.TwentyOneRestClient(username=self._username, wallet=settings.WALLET)
 
     def handle(self, *args, **options):
         manifest_path = 'deep21/manifest.yaml'
-        app_name = 'Hello 21'
+        app_name = 'Deep21'
         try:
             publish._publish(self._client, manifest_path, '21market', True, {})
             self._logger.info(

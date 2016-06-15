@@ -1,14 +1,18 @@
 {
-  "name": "Django Heroku 21 Template",
-  "description": "A template for a Django/Heroku app that uses 21.",
+  "name": "21 Deep Learning",
+  "description": "An example 21 endpoint that uses AWS for deep learning.",
   "keywords": [
     "django",
     "heroku",
+    "aws",
+    "21",
     "bitcoin",
-    "21"
+    "deep learning",
+    "style transfer",
+    "neural art"
   ],
   "website": "https://21.co",
-  "repository": "https://github.com/21dotco/two1-django-heroku",
+  "repository": "https://github.com/21dotco/two1-deep-learning",
   "logo": "https://assets.21.co/shared/img/21logo.png",
   "scripts": {
     "postdeploy": "python manage.py migrate"
@@ -25,8 +29,40 @@
     "TWO1_USERNAME": {
       "description": "21.co username"
     },
-    "TWO1_WALLET_MNEMONIC": {
-      "description": "21 wallet mnemonic"
+    "TWO1_WALLET_MNEMONIC": { 
+        "description": "21 wallet mnemonic" 
+    },
+    "AWS_DEFAULT_REGION": { 
+        "description": "AWS region", 
+        "value": "us-east-1" 
+    },
+    "AWS_ACCESS_KEY_ID": { 
+        "description": "AWS access key" 
+    },
+    "AWS_SECRET_ACCESS_KEY": { 
+        "description": "AWS secret access key" 
+    },
+    "EC2_SSH_KEYPAIR_ID": { 
+        "description": "The ID of the EC2 SSH keypair to ssh into launched instances" 
+    },
+    "EC2_IAM_INSTANCE_PROFILE_ARN": {
+         "description": "The IAM instance profile ARN to use for launched instances" 
+    },
+    "EC2_SECURITY_GROUP_NAME": { 
+        "description": "The EC2 security group to use for launched instances" 
+    },
+    "S3_BUCKET_NAME": { 
+        "description": "The S3 bucket to store inputs and outupts in" 
+    },
+    "IMGUR_CLIENT_ID": { 
+        "description": "The imgur API client ID" 
+    },
+    "IMGUR_CLIENT_SECRET": { 
+        "description": "The imgur API secret." 
+    },
+    "BUY_PRICE": { 
+        "description": "The price to buy this endpoint, in satoshis.",
+        "value": "125000"
     },
     "DEBUG": {
       "description": "Whether to run the app in DEBUG mode",

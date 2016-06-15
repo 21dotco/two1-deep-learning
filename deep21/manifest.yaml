@@ -1,27 +1,86 @@
 basePath: /
-host: django-heroku-21-tutorial.herokuapp.com
-info:
-  contact: {email: jeremy@21.co, name: Jeremy Kun, url: 'https://21.co'}
-  description: A deep21 world app hosted on heroku using Django.
-  license: {name: MIT LICENSE, url: 'https://opensource.org/licenses/MIT'}
-  termsOfService: https://opensource.org/licenses/MIT
-  title: Hello 21!
-  version: '0.3'
-  x-21-app-image: https://cdn.filepicker.io/api/file/N1fcQszdRSCTEKNt1Qpp
-  x-21-category: utilities
-  x-21-keywords: tutorial heroku django
-  x-21-quick-buy: $ 21 buy url "https://django-heroku-21-tutorial.herokuapp.com/buy"
-  x-21-total-price: {max: 100, min: 100}
-  x-21-usage: ''
-paths:
-  /buy:
-    get:
-      produces: [text/plain]
-      responses:
-        200:
-          description: a deep21 world message
-          schema: {type: text}
-      summary: buy a deep21 world message
+host: <HOST> 
 schemes: [https]
 swagger: '2.0'
 x-21-manifest-path: /manifest
+info:
+  contact: 
+    email: support@21.co 
+    name: 21dotco
+    url: 'https://21.co'
+  description: Transfer the style of one image to another image using deep learning. 
+  license: 
+    name: MIT LICENSE
+    url: 'https://opensource.org/licenses/MIT'
+  termsOfService: https://opensource.org/licenses/MIT
+  title: Deep Learning AWS Tutorial 
+  version: '1.0.0'
+  x-21-app-image: https://cdn.filepicker.io/api/file/mFDb3ur8R6OhsP3uvNVU
+  x-21-category: entertainment 
+  x-21-keywords: 
+    neural
+    network
+  x-21-quick-buy: "21 buy url \"http://<APP_URL>/buy\" --data '{\"style\":\"http://i.imgur.com/3is4qSi.jpg\", \"content\":\"http://i.imgur.com/8FwCskQ.jpg\"}"
+  x-21-total-price: 
+    min: 200000
+    max: 200000
+  x-21-usage: ''
+paths:
+  /buy:
+    post:
+      summary: Buy a style transfer
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: data
+          description: parameters for the style transfer
+          required: true
+          schema:
+            $ref: "#/definitions/Data"
+      responses:
+        "200":
+          description: Successful initialization of style transfer algorithm
+  /redeem:
+    get:
+      summary: Redeems a token
+      description: Checks to see if the computation is done, and if so returns an imgur link to the finished image.
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: token
+          description: The token to redeem
+          required: true
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type: string
+              url:
+                type: string
+        "400":
+          description: Invalid or redeemed token
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type: string
+definitions:
+  Data:
+    type: object
+    properties:
+      style:
+        type: string
+      content:
+        type: string
