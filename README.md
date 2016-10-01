@@ -24,7 +24,7 @@ need
  - `TWO1_USERNAME`
  - `TWO1_WALLET_MNEMONIC`
 
-You can get imgur API keys [here](http://api.imgur.com/oauth2/addclient).
+You can get imgur API keys [here](https://api.imgur.com/oauth2/addclient).
 
 Finally, if you are going to use GPU instances, you should request a instance
 limit increase from AWS. Currently they only allow for 2 simultaneously running
